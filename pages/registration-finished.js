@@ -3,7 +3,7 @@ const RegistrationFinished = () => {
         <div className="register-wrapper">
             <img
                 className="bg"
-                src="bg.webp" />
+                src="bg.svg" />
             <div className="scrollable-div">
                 <div className="text-container">
                     <div className="display">

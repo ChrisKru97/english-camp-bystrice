@@ -121,9 +121,17 @@ button {
     top: 92vh;
 }
 
+.disabled {
+    filter: opacity(0.4);
+    pointer-events: none;
+}
+
 .info,
 form {
-    padding-bottom: 20vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 6pt;
+    padding: 10pt 20pt;
+    margin-bottom: 10vh;
 }
 
 form .inputs-wrapper {
@@ -153,10 +161,14 @@ form label {
     margin-bottom: 20vh;
 }
 
+.terms {
+    margin-bottom: 5pt;
+}
+
 .display {
     border: 10pt rgba(0, 0, 0, 0.2) solid;
     padding: 10pt 20pt;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px) brightness(0.8);
 }
 
 .register-wrapper .text-container {
@@ -189,6 +201,10 @@ form label {
     position: absolute;
     top: 0;
     left: 0;
+}
+
+.title {
+    width: 100%;
 }
 
 .text-container {

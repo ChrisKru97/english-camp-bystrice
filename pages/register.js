@@ -1,5 +1,5 @@
 import { addDoc, collection } from "firebase/firestore";
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 import { db } from "../firebase/clientApp";
 
 const maxScroll = 1200;
@@ -7,7 +7,6 @@ const maxScroll = 1200;
 const Register = () => {
     const scrollableDivRef = useRef()
     const imgRef = useRef()
-
 
     useEffect(() => {
         scrollableDivRef.current.onscroll = (e) => {
@@ -35,7 +34,7 @@ const Register = () => {
                 <img
                     ref={imgRef}
                     className="bg"
-                    src="bg.webp"
+                    src="bg.svg"
                 />
             </div>
             <div ref={scrollableDivRef} className="scrollable-div">
@@ -63,9 +62,10 @@ const Register = () => {
                             <label htmlFor="diet">Požadavky na stravování</label>
                             <input id="diet" name="diet" />
                         </div>
-                        <span className="terms">
+                        <div className="terms">
+                            English Camp se bude konat ve formě příměstského tábora. Bližší informace Vám budou zaslány e-mailem.<br />
                             Registrací Vašeho dítěte potvrzujete jeho účast včetně stravování  po celou délku pobytu.
-                        </span>
+                        </div>
                         <br />
                         <button type="submit" href="/register">Registrovat 👍</button>
                     </form>

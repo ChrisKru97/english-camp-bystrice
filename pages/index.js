@@ -1,11 +1,21 @@
+import { collection, getDoc, getDocs } from "firebase/firestore";
 import { useEffect, useRef, useState } from "react"
+import { db } from "../firebase/clientApp";
 
 const maxScroll = 1200;
+
+const MAX_REGISTERED = 30;
 
 const Home = () => {
   const scrollableDivRef = useRef()
   const imgRef = useRef()
+  const [registerEnabled, setRegisterEnabled] = useState(false);
 
+  useEffect(() => {
+    getDocs(collection(db, "registration")).then((docs) => {
+      if (docs.size < MAX_REGISTERED) setRegisterEnabled(true);
+    })
+  }, [])
 
   useEffect(() => {
     scrollableDivRef.current.onscroll = (e) => {
@@ -20,14 +30,11 @@ const Home = () => {
       <img
         ref={imgRef}
         className="bg"
-        src="bg.webp"
+        src="bg.svg"
       />
       <div ref={scrollableDivRef} className="scrollable-div">
         <div className="text-container">
-          <div className="display">
-            <h1>English Camp</h1>
-            <h2>Bystřice</h2>
-          </div>
+          <img src="title.svg" className="title" />
         </div>
         <div className="info">
           <h2>Info:</h2>
@@ -39,7 +46,14 @@ const Home = () => {
           <div className="row"><h3>Bankovní účet:</h3><h4>107-3522660237/0100</h4></div>
           <div className="row"><h3>Variabilní symbol:</h3><h4>111507</h4></div>
           <span>Peníze prosím pošlete převodem na číslo bankovního účtu a do poznámky uveďte jméno Vašeho dítěte. Uhraďte do 30.6.2022.</span>
-          <a className="button-link" href="/register">Registrace 👉</a>
+          <a
+            className={"button-link" + (registerEnabled ? "" : " disabled")}
+            href={registerEnabled ? "/register" : "/"}
+          >{
+              registerEnabled
+                ? "Registrace 👉"
+                : "Již máme plno ❌"
+            }</a>
           <span>Pořádá Farní sbor Bystřice ve spolupráci s E.C. MISE,<br />
             kontakt: Simona Pietroszová<br />
             <a href="mailto:s.pietroszova@gmail.com">
