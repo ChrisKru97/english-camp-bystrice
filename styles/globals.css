@@ -40,6 +40,11 @@ h4 {
     font-size: 35pt;
 }
 
+h5 {
+    font-size: 25pt;
+    text-align: center;
+}
+
 .row {
     display: flex;
     align-items: baseline;
@@ -236,6 +241,10 @@ form label {
 
     h4 {
         font-size: 25pt;
+    }
+    
+    h5 {
+        font-size: 15pt;
     }
 
     a.button-link,

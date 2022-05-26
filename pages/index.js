@@ -4,7 +4,7 @@ import { db } from "../firebase/clientApp";
 
 const maxScroll = 1200;
 
-const MAX_REGISTERED = 30;
+const MAX_REGISTERED = 36;
 
 const Home = () => {
   const scrollableDivRef = useRef()
@@ -42,6 +42,7 @@ const Home = () => {
           <div className="row"><h3>Místo:</h3><h4>Fara Bystřice</h4></div>
           <div className="row"><h3>Téma:</h3><h4>Who is Jesus?</h4></div>
           <div className="row"><h3>Věk:</h3><h4>8-12 let</h4></div>
+          <div className="row"><h5>English Camp se bude konat ve formě příměstského tábora.</h5></div>
           <div className="row"><h3>Cena:</h3><h4>1200,-</h4></div>
           <div className="row"><h3>Bankovní účet:</h3><h4>107-3522660237/0100</h4></div>
           <div className="row"><h3>Variabilní symbol:</h3><h4>111507</h4></div>
